@@ -24,4 +24,5 @@ Route::middleware([
     route::get('/add_food',[AdminController::class,'add_food']);
     route::post('/upload_food',[AdminController::class,'upload_food']);
 
+
 });
