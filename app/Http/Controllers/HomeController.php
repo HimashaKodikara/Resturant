@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         $usertype = Auth()->user()->usertype;
 
-        if($usertype =='user')
+        if($usertype=='user')
         {
             return view('dashboard');
         }
