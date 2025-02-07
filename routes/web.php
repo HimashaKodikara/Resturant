@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 
 
 
 route::get('/',[HomeController::class,'my_home']);
-
 
 // Make access control
 Route::middleware([
@@ -20,5 +20,7 @@ Route::middleware([
     })->name('dashboard');
 
     route::get('/home',[HomeController::class,'index']);
+
+    route::get('/add_food',[AdminController::class,'add_food']);
 
 });

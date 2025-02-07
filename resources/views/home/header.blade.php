@@ -39,6 +39,7 @@
                 @endauth
 
                 <form action="{{route('logout') }}" method="POST">
+                    @csrf
                     <input type="submit" class="btn btn-primary ml-xl-4" value="Logout">
                 </form>
 
