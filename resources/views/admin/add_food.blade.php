@@ -46,7 +46,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <form action="" method="post">
+                <form action="{{url('upload_food')}}" method="post">
                     @csrf
                     <div class="div_deg">
                         <label for="">Food Title</label>
