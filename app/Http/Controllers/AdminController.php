@@ -21,7 +21,8 @@ class AdminController extends Controller
        $data->price = $request->price;
        $image = $request->img;
 
-       $filename = time().'.'.$image->getClientOriginalExtention();
+       $filename = time().'.'.$image->getClientOriginalExtension();
+
        $request->img->move('food_img',$filename);
 
        $data->image = $filename;
@@ -35,5 +36,10 @@ class AdminController extends Controller
         return redirect()->back()->with('error','Upload Error');
     }
 
+  }
+
+  public function view_food(){
+    $data = Food::all();
+    return view('admin.show_food',compact('data'));
   }
 }
