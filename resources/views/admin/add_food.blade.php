@@ -46,23 +46,23 @@
     <div class="page-content">
         <div class="page-header">
             <div class="container-fluid">
-                <form action="{{url('upload_food')}}" method="post">
+                <form action="{{url('upload_food')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="div_deg">
                         <label for="">Food Title</label>
-                        <input type="text" name="title">
+                        <input type="text" name="title" required>
                     </div>
                     <div class="div_deg">
                         <label for="">Food details</label>
-                        <textarea name="details" cols="50" rows="5"></textarea>
+                        <textarea name="details" cols="50" rows="5" required ></textarea>
                     </div>
                     <div class="div_deg">
                         <label for="">Price</label>
-                        <input type="text" name="price">
+                        <input type="text" name="price" required>
                     </div>
                     <div class="div_deg">
                         <label for="">Image</label>
-                        <input type="file" name="img">
+                        <input type="file" name="img" required>
                     </div>
                     <div class="div_deg">
 

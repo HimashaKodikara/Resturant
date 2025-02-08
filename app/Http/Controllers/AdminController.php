@@ -22,6 +22,9 @@ class AdminController extends Controller
        $image = $request->img;
 
        $filename = time().'.'.$image->getClientOriginalExtention();
+       $request->img->move('food_img',$filename);
+
+       $data->image = $filename;
 
        $data->save();
 
