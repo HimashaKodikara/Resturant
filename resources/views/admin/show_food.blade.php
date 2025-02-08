@@ -73,7 +73,7 @@
                             <td>{{$data->price}}</td>
                             <td>
                                 <img width="100" height="75" src="food_img/{{$data->image}}" alt=""></td>
-                                <td class="align-middle btn-danger btn" onclick="return confirm('Are you sure to delete this')" href="{{url('delete_food',$data->id)}}">Delete</td>
+                                <td><button class=" btn-danger btn" onclick="return confirm('Are you sure to delete this')" href="{{url('delete_food',$data->id)}}">Delete</button></td>
                         </tr>
                         @endforeach
                     </table>
