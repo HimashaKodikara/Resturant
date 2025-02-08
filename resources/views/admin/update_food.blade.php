@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <base href="/public">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dark Bootstrap Admin </title>
@@ -25,25 +27,17 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-   <style>
-    table{
-        border: 1px slod skyblue;
-        margin: auto;
-        width: 800px;
-    }
-    th{
-        background-color: skyblue;
-        color: white;
-        padding: 10px;
-        margin: 10px;
-    }
-    td{
-        color: white;
-        padding:10px;
+    <style>
+        .div_deg {
+            padding: 10px;
+        }
 
-    }
+        label {
+            display: inline-block;
+            width: 200px;
+        }
     </style>
-    </head>
+</head>
 
 <body>
     @include('admin.header')
@@ -54,32 +48,43 @@
         <div class="page-header">
             <div class="container-fluid">
 
+                <h1>Update Food</h1>
 
-                <h1>All Foods</h1>
-                <div>
-                    <table class="text-center border-collapse ">
-                        <tr>
-                            <th>Food Title</th>
-                            <th>Details</th>
-                            <th>Price</th>
-                            <th>Image</th>
-                            <th>Delete</th>
-                            <th>Update</th>
-                        </tr>
 
-                        @foreach ($data as $data )
-                        <tr>
-                            <td>{{$data->title}}</td>
-                            <td>{{$data->details}}</td>
-                            <td>{{$data->price}}</td>
-                            <td>
-                                <img width="100" height="75" src="food_img/{{$data->image}}" alt=""></td>
-                                <td><a class=" btn-danger btn" onclick="return confirm('Are you sure to delete this')" href="{{url('delete_food',$data->id)}}">Delete</a></td>
-                                <td><a class="btn btn-warning"  href="{{url('update_food',$data->id)}}">Update</td>
-                        </tr>
-                        @endforeach
-                    </table>
-                </div>
+                <form action="" method="post" enctype="multipart/form-data">
+
+                    @csrf
+
+                    <div class="div_deg">
+                        <label for="">Food Title</label>
+                        <input type="text" name="title" value="{{ $food->title }}">
+                    </div>
+
+                    <div class="div_deg">
+                        <label for="">Details</label>
+                        <textarea type="text" name="details" id="" >{{$food->details}}</textarea>
+                    </div>
+
+                    <div class="div_deg">
+                        <label for="">Price</label>
+                        <input type="text" name="price" value="{{ $food->price}}">
+                    </div>
+
+                    <div class="div_deg">
+                        <label for="">Current Image</label>
+                        <img width="150" src="food_img/{{$food->image}}" alt="">
+                    </div>
+
+                    <div class="div_deg">
+                        <label for="">Change Image</label>
+                        <input type="file" name="image">
+                    </div>
+
+                    <div class="div_img">
+                         <input class="btn btn-warning" type="submit" value="Update Food">
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>

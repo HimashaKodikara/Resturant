@@ -50,4 +50,10 @@ class AdminController extends Controller
 
     return redirect()->back();
   }
+
+  public function update_food($id){
+
+    $food = Food::find($id);
+  return view('admin.update_food',compact('food'));
+  }
 }
