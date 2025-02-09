@@ -51,7 +51,7 @@
                 <h1>Update Food</h1>
 
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="{{url('edit_food',$food->id)}}" method="post" enctype="multipart/form-data">
 
                     @csrf
 
