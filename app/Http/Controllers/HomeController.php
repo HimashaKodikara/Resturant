@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use App\Models\Food;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -38,7 +39,25 @@ class HomeController extends Controller
    public function add_cart(Request $request,$id)
    {
     if(Auth::id()){
-        echo"user is loggeed in";
+        $food = Food::find($id);
+
+        $cart_title = $food->title;
+        $cart_details = $food->details;
+        $cart_price = $food->price;
+        $cart_image = $food->image;
+
+         $data = new Cart;
+         $data->title = $cart_title;
+         $data->details = $cart_details;
+
+         $data->price = $cart_price;
+
+         $data->image = $cart_image;
+         $data->quantity = $cart_quantity;
+
+
+
+
     }
     else{
         return redirect("login");

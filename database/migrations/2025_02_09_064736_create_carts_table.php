@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+            $table->longText('details')->nullable;
+            $table->string('quantity')->nullable;
+            $table->string('image')->nullable;
+            $table->string('price')->nullable;
             $table->timestamps();
         });
     }
