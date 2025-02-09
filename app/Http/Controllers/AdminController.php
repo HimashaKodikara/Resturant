@@ -102,6 +102,25 @@ catch(Exception $e){
     $data = Order::find($id);
     $data->delivary_status = "On the Way";
     $data->save;
-    
+    return redirect()->back();
+
+
+  }
+  public function delivered($id)
+  {
+    $data = Order::find($id);
+    $data->delivary_status = "delivered";
+    $data->save;
+    return redirect()->back();
+
+
+  }
+  public function cancel($id)
+  {
+    $data = Order::find($id);
+    $data->delivary_status = "cancel";
+    $data->save;
+    return redirect()->back();
+
   }
 }
