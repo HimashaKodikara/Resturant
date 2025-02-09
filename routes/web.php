@@ -29,6 +29,8 @@ Route::middleware([
     route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 
     route::get('/my_cart',[HomeController::class,'my_cart']);
+    route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
+
 
 
     route::post('/upload_food',[AdminController::class,'upload_food']);
