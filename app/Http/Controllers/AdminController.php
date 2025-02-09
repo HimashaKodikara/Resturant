@@ -75,7 +75,8 @@ class AdminController extends Controller
     }
 
     $data->save();
-    return redirect()->back('view_food');
+    return redirect()->back('302')->with('success','Updated Sucessfuly');
+
 
 
   }
