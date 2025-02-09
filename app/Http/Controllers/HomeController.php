@@ -8,6 +8,7 @@ use App\Models\Food;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 
+
 class HomeController extends Controller
 {
 
@@ -50,7 +51,7 @@ class HomeController extends Controller
          $data->title = $cart_title;
          $data->details = $cart_details;
 
-         $data->price = $cart_price;
+         $data->price = $cart_price * $request->quantity;
 
          $data->image = $cart_image;
          $data->quantity = $request->quantity;
