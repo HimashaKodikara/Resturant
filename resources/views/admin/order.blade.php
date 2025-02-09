@@ -71,6 +71,7 @@
                         <th>Price</th>
                         <th>Image</th>
                         <th>Status</th>
+                        <th>Change Status</th>
                     </tr>
 
                     @foreach ($data as $data )
@@ -86,6 +87,11 @@
                         <td>{{$data->price}}</td>
                         <td><img src="food_img/{{$data->image}}" width="150" alt=""></td>
                         <td>{{$data->delivery_status}}</td>
+                        <td>
+                            <a class="btn btn-info" href="{{url('on_the_way',)}}">On the Way</a>
+                            <a class="btn btn-warning" href="{{url('delivered',)}}">Delivered</a>
+                            <a class="btn btn-danger" href="{{url('cancel',)}}">Cancel</a>
+                        </td>
                     </tr>
                     @endforeach
                  </table>

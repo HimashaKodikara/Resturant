@@ -96,4 +96,12 @@ catch(Exception $e){
     $data = Order::all();
     return view ('admin.order',compact('data'));
   }
+
+  public function on_the_way($id)
+  {
+    $data = Order::find($id);
+    $data->delivary_status = "On the Way";
+    $data->save;
+    
+  }
 }

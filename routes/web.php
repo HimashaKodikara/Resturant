@@ -33,6 +33,8 @@ Route::middleware([
     route::post('/upload_food',[AdminController::class,'upload_food']);
     route::post('/confirm_order',[HomeController::class,'confirm_order']);
     route::get('/orders',[AdminController::class,'orders']);
+    route::get('/on_the_way',[AdminController::class,'on_the_way']);
+
 
 
 
