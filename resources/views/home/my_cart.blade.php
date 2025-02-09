@@ -4,12 +4,13 @@
 <head>
     @include('home.css')
     <style>
-        table{
+        table {
             margin: 40px;
             border: 1px solid skyblue;
             padding: :40px;
         }
-        th{
+
+        th {
             padding: 10px;
             text-align: center;
             background-color: red;
@@ -18,11 +19,26 @@
 
         }
 
-        td{
+        td {
             padding: 10px;
             color: white;
         }
-        </style>
+        .div_center
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px
+        }
+        lable
+        {
+            display: inline-block;
+            width: 200px;
+        }
+        .div_deg{
+            padding: 20px
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
@@ -57,72 +73,94 @@
                 </li>
                 @if (Route::has('login'))
                     @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{url('my_cart')}}">Cart</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('my_cart') }}">Cart</a>
+                        </li>
 
-                    <form action="{{route('logout') }}" method="POST">
-                        @csrf
-                        <input type="submit" class="btn btn-primary ml-xl-4" value="Logout">
-                    </form>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <input type="submit" class="btn btn-primary ml-xl-4" value="Logout">
+                        </form>
                     @else
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>
                     @endauth
+                @endif
 
-
-
-            @endif
-
-        </ul>
-    </div>
+            </ul>
+        </div>
     </nav>
-</br></br></br></br>
-   <div  class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
-     <table class="">
-        <tr>
-            <th>Food Title</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Image</th>
-            <th>Remove</th>
+    </br></br></br></br>
+    <div class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
+        <table class="">
+            <tr>
+                <th>Food Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Image</th>
+                <th>Remove</th>
 
-        </tr>
+            </tr>
 
-        <?php
-          $total_price = 0;
+            <?php
+            $total_price = 0;
 
-        ?>
-        @foreach ($data as $data )
+            ?>
+            @foreach ($data as $data)
+                <tr>
+                    <td>{{ $data->title }}</td>
+                    <td>${{ $data->price }}</td>
+                    <td>{{ $data->quantity }}</td>
+                    <td>
+                        <img src="food_img/{{ $data->image }}" width="150" alt="">
+                    </td>
+                    <td>
+                        <a onclick="return confirm('Are you sure to remove this ?')"
+                            href="{{ url('remove_cart', $data->id) }}" class="btn btn-danger">Delete</a>
+                    </td>
 
+                </tr>
 
-        <tr>
-            <td>{{$data->title}}</td>
-            <td>${{$data->price}}</td>
-            <td>{{$data->quantity}}</td>
-            <td>
-                <img src="food_img/{{$data->image}}" width="150" alt="">
-            </td>
-            <td>
-                <a onclick="return confirm('Are you sure to remove this ?')" href="{{url('remove_cart',$data->id)}}" class="btn btn-danger">Delete</a>
-            </td>
+                <?php
+                $total_price = $total_price + $data->price;
+                ?>
+            @endforeach
+        </table>
 
-        </tr>
+        <h1>Total price for the cart ${{ $total_price }}</h1>
+    </div>
+    <div class="div_center">
 
-        <?php
-         $total_price= $total_price + $data->price;
-        ?>
-        @endforeach
-     </table>
+        <form action="{{url('confirm_order')}}" method="post">
 
-     <h1>Total price for the cart ${{$total_price}}</h1>
-   </div>
+            @csrf
 
+            <div class="div_deg">
+                <lable for="">Name</lable>
+                <input type="text" name="name" value="{{Auth()->user()->name}}">
+            </div>
+            <div class="div_deg">
+                <lable for="">Email</lable>
+                <input type="email" name="email" value="{{Auth()->user()->email}}">
+            </div>
+            <div class="div_deg">
+                <lable for="">Phone</lable>
+                <input type="number" name="phone" value="{{Auth()->user()->phone}}">
+            </div>
+            <div class="div_deg">
+                <lable for="">Address</lable>
+                <input type="text" name="address" value="{{Auth()->user()->address}}">
+            </div>
+            <div>
+                <input class="btn btn-info" type="submit" value="Confirm Order">
+            </div>
+        </form>
+
+    </div>
     <!-- end of page footer -->
 
     <!-- core  -->

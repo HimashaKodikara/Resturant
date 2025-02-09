@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Users;
 use App\Models\Food;
 use App\Models\Cart;
+use App\Models\Order;
+
 use Illuminate\Support\Facades\Auth;
 
 
@@ -90,5 +92,30 @@ class HomeController extends Controller
     $data->delete();
 
     return redirect()->back();
+   }
+
+   public function confirm_order(Request $request)
+   {
+    $user_id = Auth()->user()->id;
+
+    $cart = Cart::where('userid','=',$user_id)->get();
+
+    foreach($cart as $cart){
+     $order = new Order;
+     $order->name = $request->name;
+     $order->email = $request->email;
+
+     $order->phone = $request->phone;
+
+     $order->address = $request->address;
+     $order->title = $cart->title;
+     $order->quantity = $cart->quantity;
+     $order->price = $cart->price;
+     $order->image = $cart->image;
+     $order->save();
+
+
+
+    }
    }
 }

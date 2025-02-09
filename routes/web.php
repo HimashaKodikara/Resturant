@@ -27,13 +27,11 @@ Route::middleware([
     route::get('/update_food/{id}',[AdminController::class,'update_food']);
     route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
     route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
-
     route::get('/my_cart',[HomeController::class,'my_cart']);
+    route::post('/my_cart',[HomeController::class,'my_cart']);
     route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
-
-
-
     route::post('/upload_food',[AdminController::class,'upload_food']);
+    route::post('/confirm_order',[HomeController::class,'confirm_order']);
 
 
 });
