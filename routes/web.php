@@ -28,6 +28,7 @@ Route::middleware([
     route::post('/edit_food/{id}',[AdminController::class,'edit_food']);
     route::post('/add_cart/{id}',[HomeController::class,'add_cart']);
 
+    route::get('/my_cart',[HomeController::class,'my_cart']);
 
 
     route::post('/upload_food',[AdminController::class,'upload_food']);

@@ -20,25 +20,31 @@ class HomeController extends Controller
     }
    public function index()
    {
-    if(Auth::id())
-    {
-        $usertype = Auth()->user()->usertype;
-
-        if($usertype=='user')
+    try{
+        if(Auth::id())
         {
-            $data = Food::all();
+            $usertype = Auth()->user()->usertype;
 
-            return view('home.index',compact('data'));
+            if($usertype=='user')
+            {
+                $data = Food::all();
+
+                return view('home.index',compact('data'));
+            }
+            else{
+                return view('admin.index');
+            }
         }
-        else{
-            return view('admin.index');
-        }
-    }
+}
+   catch(Exception $e){
+      return redirect()->back()->with('error','Upload Error');
+}
 
    }
 
    public function add_cart(Request $request,$id)
    {
+    try{
     if(Auth::id()){
         $food = Food::find($id);
 
@@ -55,6 +61,7 @@ class HomeController extends Controller
 
          $data->image = $cart_image;
          $data->quantity = $request->quantity;
+         $data->userid = Auth()->user()->id;
          $data->save();
 
          return redirect()->back();
@@ -64,5 +71,16 @@ class HomeController extends Controller
     else{
         return redirect("login");
     }
+}catch(Exception $e){
+    return redirect()->back()->with('error','Upload Error');
+}
+   }
+
+
+   public function my_cart(){
+
+        $user_id = Auth()->user()->id;
+        $data = Cart::where('userid','=',$user_id)->get();
+        return view('home.my_cart',compact('data'));
    }
 }

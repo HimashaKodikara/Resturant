@@ -44,39 +44,48 @@ class AdminController extends Controller
   }
 
   public function delete_food($id){
-    $data = Food::find($id);
+    try{
+        $data = Food::find($id);
 
-    $data->delete();
+        $data->delete();
 
-    return redirect()->back();
+        return redirect()->back();
+    }catch(Exception $e){
+        return redirect()->back()->with('error','Upload Error');
+
+    }
   }
 
   public function update_food($id){
+
 
     $food = Food::find($id);
   return view('admin.update_food',compact('food'));
   }
 
   public function edit_food(Request $request,$id){
-    $data = Food::find($id);
+    try{
+        $data = Food::find($id);
 
-    $data->title = $request->title;
-    $data->details = $request->details;
-    $data->price = $request->price;
+        $data->title = $request->title;
+        $data->details = $request->details;
+        $data->price = $request->price;
 
-    $image = $request->image;
+        $image = $request->image;
 
-    if($image)
-    {
-        $imagename=time().'.'.$image->getClientOriginalExtension();
-        $request->image->move('food_img',$imagename);
+        if($image)
+        {
+            $imagename=time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('food_img',$imagename);
 
-        $data->image = $imagename;
-    }
+            $data->image = $imagename;
+        }
 
-    $data->save();
-    return redirect()->back('302')->with('success','Updated Sucessfuly');
-
+        $data->save();
+}
+catch(Exception $e){
+        return redirect()->back()->with('error','Upload Error');
+}
 
 
   }
