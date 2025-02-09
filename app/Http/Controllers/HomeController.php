@@ -34,4 +34,14 @@ class HomeController extends Controller
     }
 
    }
+
+   public function add_cart(Request $request,$id)
+   {
+    if(Auth::id()){
+        echo"user is loggeed in";
+    }
+    else{
+        return redirect("login");
+    }
+   }
 }

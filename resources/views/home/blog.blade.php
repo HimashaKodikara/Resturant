@@ -22,12 +22,14 @@
                                 <h4 class="pt20 pb20">{{ $data->title }} </h4>
                                 <p class="text-white">{{ $data->details }} </p>
                             </div>
-                            <form action="">
+                            <form action="{{ url('add_cart', $data->id) }}" method="post">
+
+                                @csrf
                                 <input value="1" type="number" min="1" required>
                                 <input type="submit" class="btn btn-info" value="Add to Cart">
                             </form>
 
-                        </br></br></br>
+                            </br></br></br>
 
                         </div>
                     </div>
