@@ -32,6 +32,8 @@ Route::middleware([
     route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
     route::post('/upload_food',[AdminController::class,'upload_food']);
     route::post('/confirm_order',[HomeController::class,'confirm_order']);
+    route::get('/orders',[AdminController::class,'orders']);
+
 
 
 });

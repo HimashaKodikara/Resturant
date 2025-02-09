@@ -113,9 +113,12 @@ class HomeController extends Controller
      $order->price = $cart->price;
      $order->image = $cart->image;
      $order->save();
+     $data = Cart::find($cart->id);
+     $data->delete();
 
 
 
     }
+    return redirect()->back();
    }
 }

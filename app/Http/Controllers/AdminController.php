@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -88,5 +89,11 @@ catch(Exception $e){
 }
 
 
+  }
+
+  public function Orders()
+  {
+    $data = Order::all();
+    return view ('admin.order',compact('data'));
   }
 }
