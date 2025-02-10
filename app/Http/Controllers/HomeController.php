@@ -135,9 +135,9 @@ class HomeController extends Controller
 public function book_table(Request $request){
     $data = new Book;
     $data->phone = $request->phone;
-    $data->phone = $request->m_guest;
-    $data->phone = $request->time;
-    $data->phone = $request->date;
+    $data->guest = $request->n_guest;
+    $data->time= $request->time;
+    $data->date = $request->date;
 
     $data->save();
 

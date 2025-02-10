@@ -102,7 +102,7 @@ catch(Exception $e){
   {
     $data = Order::find($id);
     $data->delivary_status = "On the Way";
-    $data->save;
+    $data->save();
     return redirect()->back();
 
 
@@ -111,7 +111,7 @@ catch(Exception $e){
   {
     $data = Order::find($id);
     $data->delivary_status = "delivered";
-    $data->save;
+    $data->save();
     return redirect()->back();
 
 
@@ -120,7 +120,7 @@ catch(Exception $e){
   {
     $data = Order::find($id);
     $data->delivary_status = "cancel";
-    $data->save;
+    $data->save();
     return redirect()->back();
 
   }

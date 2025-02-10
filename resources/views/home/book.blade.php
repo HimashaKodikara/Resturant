@@ -4,6 +4,7 @@
         <h2 class="mb-5 section-title">BOOK A TABLE</h2>
 
         <form action="{{url('book_table')}}" method="Post">
+            @csrf
         <div class="mb-5 row">
             <div class="my-2 col-sm-6 col-md-3 col-xs-12">
                 <input type="text" id="booktable" class="form-control form-control-lg custom-form-control" name="phone" placeholder="Phone Number">

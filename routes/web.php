@@ -31,10 +31,10 @@ Route::middleware([
     route::post('/my_cart',[HomeController::class,'my_cart']);
     route::get('/remove_cart/{id}',[HomeController::class,'remove_cart']);
     route::post('/upload_food',[AdminController::class,'upload_food']);
-    route::post('/confirm_order',[HomeController::class,'confirm_order']);
+    route::post('/confirm_order/{id}',[HomeController::class,'confirm_order']);
     route::get('/orders',[AdminController::class,'orders']);
-    route::get('/on_the_way',[AdminController::class,'on_the_way']);
-    route::get('/delivered',[AdminController::class,'delivered']);
+    route::get('/on_the_way/{id}',[AdminController::class,'on_the_way']);
+    route::get('/delivered/{id}',[AdminController::class,'delivered']);
     route::post('/book_table',[HomeController::class,'book_table']);
     route::get('/reservations',[AdminController::class,'reservations']);
 

@@ -88,9 +88,9 @@
                         <td><img src="food_img/{{$data->image}}" width="150" alt=""></td>
                         <td>{{$data->delivery_status}}</td>
                         <td>
-                            <a class="btn btn-info" href="{{url('on_the_way',)}}">On the Way</a>
-                            <a class="btn btn-warning" href="{{url('delivered',)}}">Delivered</a>
-                            <a class="btn btn-danger" href="{{url('cancel',)}}">Cancel</a>
+                            <a class="btn btn-info" href="{{url('on_the_way',$data->id)}}">On the Way</a>
+                            <a class="btn btn-warning" href="{{url('delivered',$data->id)}}">Delivered</a>
+                            <a class="btn btn-danger" href="{{url('cancel',$data->id)}}">Cancel</a>
                         </td>
                     </tr>
                     @endforeach
