@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Food;
 use App\Models\Cart;
 use App\Models\Order;
@@ -37,7 +37,14 @@ class HomeController extends Controller
             }
             else{
                 $total_user = User::where('usertype','=','user')->count();
-                return view('admin.index',compact('total_user'));
+                $total_food = Food::count();
+
+                $total_order = Order::count();
+                $total_delivered = Order::where('delivery_status','=','Delivered')->count();
+
+                return view('admin.index',compact('total_user','total_food','total_order','total_delivered'));
+
+
             }
         }
 }
@@ -125,16 +132,16 @@ class HomeController extends Controller
     return redirect()->back();
    }
 
-   public function book_table(Request $request){
-  $data = new Book;
-  $data->phone = $request->phone;
-  $data->phone = $request->m_guest;
-  $data->phone = $request->time;
-  $data->phone = $request->date;
+public function book_table(Request $request){
+    $data = new Book;
+    $data->phone = $request->phone;
+    $data->phone = $request->m_guest;
+    $data->phone = $request->time;
+    $data->phone = $request->date;
 
-  $data->save();
+    $data->save();
 
-  return redirect()->back();
+    return redirect()->back();
 
 
    }
