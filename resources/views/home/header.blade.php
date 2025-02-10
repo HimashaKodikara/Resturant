@@ -6,10 +6,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{url('home')}}">Home</a>
+                <a class="nav-link" href="{{ url('my_cart') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="{{ url('my_cart') }}">About</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#gallary">Gallary</a>
