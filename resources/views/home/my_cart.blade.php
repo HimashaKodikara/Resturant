@@ -23,19 +23,20 @@
             padding: 10px;
             color: white;
         }
-        .div_center
-        {
+
+        .div_center {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-top: 50px
         }
-        lable
-        {
+
+        lable {
             display: inline-block;
             width: 200px;
         }
-        .div_deg{
+
+        .div_deg {
             padding: 20px
         }
     </style>
@@ -135,25 +136,25 @@
     </div>
     <div class="div_center">
 
-        <form action="{{url('confirm_order')}}" method="post">
+        <form action="{{ url('confirm_order') }}" method="post">
 
             @csrf
 
             <div class="div_deg">
                 <lable for="">Name</lable>
-                <input type="text" name="name" value="{{Auth()->user()->name}}">
+                <input type="text" name="name" value="{{ Auth()->user()->name }}">
             </div>
             <div class="div_deg">
                 <lable for="">Email</lable>
-                <input type="email" name="email" value="{{Auth()->user()->email}}">
+                <input type="email" name="email" value="{{ Auth()->user()->email }}">
             </div>
             <div class="div_deg">
                 <lable for="">Phone</lable>
-                <input type="number" name="phone" value="{{Auth()->user()->phone}}">
+                <input type="number" name="phone" value="{{ Auth()->user()->phone }}">
             </div>
             <div class="div_deg">
                 <lable for="">Address</lable>
-                <input type="text" name="address" value="{{Auth()->user()->address}}">
+                <input type="text" name="address" value="{{ Auth()->user()->address }}">
             </div>
             <div>
                 <input class="btn btn-info" type="submit" value="Confirm Order">

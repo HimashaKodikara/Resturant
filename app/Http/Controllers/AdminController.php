@@ -101,7 +101,7 @@ catch(Exception $e){
   public function on_the_way($id)
   {
     $data = Order::find($id);
-    $data->delivary_status = "On the Way";
+    $data->delivery_status = "On the Way";
     $data->save();
     return redirect()->back();
 
@@ -110,17 +110,18 @@ catch(Exception $e){
   public function delivered($id)
   {
     $data = Order::find($id);
-    $data->delivary_status = "delivered";
+    $data->delivery_status = "delivered";
     $data->save();
     return redirect()->back();
-
-
   }
+
   public function cancel($id)
   {
     $data = Order::find($id);
-    $data->delivary_status = "cancel";
+    $data->delivery_status = "cancel";
     $data->save();
+    $data->delete();
+
     return redirect()->back();
 
   }
