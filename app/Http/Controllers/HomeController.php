@@ -7,6 +7,8 @@ use App\Models\Users;
 use App\Models\Food;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Book;
+
 
 use Illuminate\Support\Facades\Auth;
 
@@ -120,5 +122,19 @@ class HomeController extends Controller
 
     }
     return redirect()->back();
+   }
+
+   public function book_table(Request $request){
+  $data = new Book;
+  $data->phone = $request->phone;
+  $data->phone = $request->m_guest;
+  $data->phone = $request->time;
+  $data->phone = $request->date;
+
+  $data->save();
+
+  return redirect()->back();
+
+
    }
 }

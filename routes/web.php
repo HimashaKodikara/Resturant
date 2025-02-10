@@ -35,6 +35,7 @@ Route::middleware([
     route::get('/orders',[AdminController::class,'orders']);
     route::get('/on_the_way',[AdminController::class,'on_the_way']);
     route::get('/delivered',[AdminController::class,'delivered']);
+    route::post('/book_table',[HomeController::class,'book_table']);
 
     route::get('/on_the_way',[AdminController::class,'on_the_way']);
 
