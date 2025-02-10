@@ -123,4 +123,9 @@ catch(Exception $e){
     return redirect()->back();
 
   }
+
+  public function reservations()
+  {
+    return view('admin.reservations');
+  }
 }
