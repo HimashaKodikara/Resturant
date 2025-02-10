@@ -25,7 +25,28 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-</head>
+    <style>
+        table{
+            border:1px solid skyblue;
+            margin: auto;
+            width: 1000px;
+            margin-top: 100px;
+        }
+        th{
+            background-color: skyblue;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+        }
+        td{
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        </style>
+    </head>
 
 <body>
     @include('admin.header')
@@ -43,14 +64,19 @@
                         <th>Date</th>
                         <th>Time</th>
                     </tr>
+
+                    @foreach ($books as $book )
+
+
                     <tr>
-                        <td>and</td>
-                        <td>and</td>
-                        <td>and</td>
-                        <td>and</td>
+                        <td>{{$book->phone}}</td>
+                        <td>{{$book->guest}}</td>
+                        <td>{{$book->date}}</td>
+                        <td>{{$book->time}}</td>
 
 
                     </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

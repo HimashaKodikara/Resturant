@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Book;
 use App\Models\Order;
 
 class AdminController extends Controller
@@ -126,6 +127,8 @@ catch(Exception $e){
 
   public function reservations()
   {
-    return view('admin.reservations');
+    $books = Book::all();
+
+    return view('admin.reservations',compact('books'));
   }
 }
