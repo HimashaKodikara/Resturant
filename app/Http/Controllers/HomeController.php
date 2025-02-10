@@ -36,7 +36,8 @@ class HomeController extends Controller
                 return view('home.index',compact('data'));
             }
             else{
-                return view('admin.index');
+                $total_user = User::where('usertype','=','user')->count();
+                return view('admin.index',compact('total_user'));
             }
         }
 }
@@ -137,4 +138,6 @@ class HomeController extends Controller
 
 
    }
+
+
 }

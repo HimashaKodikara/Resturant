@@ -8,8 +8,7 @@
             <div class="block statistic-block">
                 <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                        <div class="icon"><i class="icon-user-1"></i></div><strong>New
-                            Clients</strong>
+                        <div class="icon"><i class="icon-user-1"></i></div><strong>Total Users</strong>
                     </div>
                     <div class="number dashtext-1">27</div>
                 </div>
@@ -23,8 +22,7 @@
             <div class="block statistic-block">
                 <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                        <div class="icon"><i class="icon-contract"></i></div><strong>New
-                            Projects</strong>
+                        <div class="icon"><i class="icon-contract"></i></div><strong>Total Foods</strong>
                     </div>
                     <div class="number dashtext-2">375</div>
                 </div>
@@ -38,8 +36,7 @@
             <div class="block statistic-block">
                 <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                        <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>New
-                            Invoices</strong>
+                        <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>Total Orders</strong>
                     </div>
                     <div class="number dashtext-3">140</div>
                 </div>
@@ -53,8 +50,7 @@
             <div class="block statistic-block">
                 <div class="progress-details d-flex align-items-end justify-content-between">
                     <div class="title">
-                        <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>All
-                            Projects</strong>
+                        <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>Total Delivered</strong>
                     </div>
                     <div class="number dashtext-4">41</div>
                 </div>
